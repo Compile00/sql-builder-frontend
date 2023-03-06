@@ -10,7 +10,7 @@ const DictAddResultPage: React.FC = () => (
   <Result
     status="success"
     title="词库创建成功"
-    subTitle="你可以立即使用该词库，审核通过后他人也可使用该词库"
+    subTitle="该词库已经保存成功, 下次登录可以立即使用"
     extra={[
       <Link key="use" to="/">
         <Button type="primary">去使用</Button>

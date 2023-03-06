@@ -5,9 +5,8 @@ import {
   ProColumns,
   ProTable,
 } from '@ant-design/pro-components';
-import { Button, Divider, message, Popconfirm, Space, Typography } from 'antd';
+import {  Divider, message, Popconfirm, Space, Typography } from 'antd';
 import React, { useRef, useState } from 'react';
-import CreateModal from './components/CreateModal';
 import UpdateModal from './components/UpdateModal';
 
 /**
@@ -111,15 +110,7 @@ const AdminUserPage: React.FC<unknown> = () => {
         search={{
           labelWidth: 'auto',
         }}
-        toolBarRender={() => [
-          <Button
-            key="1"
-            type="primary"
-            onClick={() => setCreateModalVisible(true)}
-          >
-            新建
-          </Button>,
-        ]}
+
         request={async (params, sorter, filter) => {
           const { data, code } = await listUserByPage({
             ...params,
@@ -135,12 +126,7 @@ const AdminUserPage: React.FC<unknown> = () => {
         }}
         columns={columns}
       />
-      <CreateModal
-        modalVisible={createModalVisible}
-        columns={columns}
-        onSubmit={() => {}}
-        onCancel={() => setCreateModalVisible(false)}
-      />
+
       <UpdateModal
         oldData={updateData}
         modalVisible={updateModalVisible}
