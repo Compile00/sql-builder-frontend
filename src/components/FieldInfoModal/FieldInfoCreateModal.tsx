@@ -67,7 +67,7 @@ const FieldInfoCreateModal: React.FC<PropsWithChildren<Props>> = (props) => {
       footer={null}
     >
       <Typography.Text type="secondary">
-        注意，你提交的内容可能会被公开！
+        注意，你提交的内容将会保存在数据库中,下次登录可以继续使用！
       </Typography.Text>
       <div style={{ marginBottom: 16 }} />
       <ProTable<FieldInfoType.FieldInfo, FieldInfoType.FieldInfo>
