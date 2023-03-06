@@ -59,20 +59,6 @@ const AdminUserPage: React.FC<unknown> = () => {
       valueType: 'text',
     },
     {
-      title: '用户头像',
-      dataIndex: 'userAvatar',
-      valueType: 'image',
-    },
-    {
-      title: '性别',
-      dataIndex: 'gender',
-      hideInForm: true,
-      valueEnum: {
-        0: { text: '男' },
-        1: { text: '女' },
-      },
-    },
-    {
       title: '用户角色',
       dataIndex: 'userRole',
       valueType: 'text',

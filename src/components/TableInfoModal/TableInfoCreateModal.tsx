@@ -1,6 +1,6 @@
 import { addTableInfo } from '@/services/tableInfoService';
 import { ProColumns, ProTable } from '@ant-design/pro-components';
-import { message, Modal, Typography } from 'antd';
+import {message, Modal, Typography} from 'antd';
 import React, { PropsWithChildren } from 'react';
 
 interface Props {

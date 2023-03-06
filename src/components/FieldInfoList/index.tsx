@@ -1,4 +1,3 @@
-import ReportModal from '@/components/ReportModal';
 import {
   deleteFieldInfo,
   generateCreateFieldSql,
@@ -17,7 +16,7 @@ import {
 } from 'antd';
 import { PaginationConfig } from 'antd/es/pagination';
 import copy from 'copy-to-clipboard';
-import React, { useState } from 'react';
+import React from 'react';
 import './index.less';
 
 interface Props {
@@ -35,9 +34,6 @@ interface Props {
  */
 const FieldInfoList: React.FC<Props> = (props) => {
   const { dataList, pagination, loading, showTag = true, onImport } = props;
-  const [reportModalVisible, setReportModalVisible] = useState(false);
-  const [reportedId, setReportedId] = useState(0);
-
   const { initialState } = useModel('@@initialState');
   const loginUser = initialState?.loginUser;
 
@@ -162,13 +158,6 @@ const FieldInfoList: React.FC<Props> = (props) => {
               </Space>
             </List.Item>
           );
-        }}
-      />
-      <ReportModal
-        visible={reportModalVisible}
-        reportedId={reportedId}
-        onClose={() => {
-          setReportModalVisible(false);
         }}
       />
     </div>

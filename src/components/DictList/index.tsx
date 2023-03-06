@@ -1,5 +1,4 @@
 import GenerateResultCard from '@/components/GenerateResultCard';
-import ReportModal from '@/components/ReportModal';
 import { deleteDict, generateCreateDictTableSql } from '@/services/dictService';
 import { useModel } from '@umijs/max';
 import {
@@ -32,8 +31,6 @@ interface Props {
  */
 const DictList: React.FC<Props> = (props) => {
   const { dataList, pagination, loading, showTag = true } = props;
-  const [reportModalVisible, setReportModalVisible] = useState(false);
-  const [reportedId, setReportedId] = useState(0);
   const [result, setResult] = useState<GenerateVO>();
   const [genLoading, setGenLoading] = useState(false);
   const { initialState } = useModel('@@initialState');
@@ -132,13 +129,7 @@ const DictList: React.FC<Props> = (props) => {
           </List.Item>
         )}
       />
-      <ReportModal
-        visible={reportModalVisible}
-        reportedId={reportedId}
-        onClose={() => {
-          setReportModalVisible(false);
-        }}
-      />
+
       <Drawer
         title="生成字典表成功"
         contentWrapperStyle={{ width: '80%', minWidth: 320 }}

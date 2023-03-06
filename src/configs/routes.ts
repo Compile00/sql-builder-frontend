@@ -24,7 +24,7 @@ export default [
     component: 'fieldInfo',
   },
   {
-    name: '创建词库',
+    name: '创建个人词库',
     path: '/dict/add',
     component: 'dict/add',
     wrappers: [
@@ -32,7 +32,7 @@ export default [
     ],
   },
   {
-    name: '创建词库成功',
+    name: '创建个人词库成功',
     path: '/dict/add_result',
     component: 'dict/add_result',
     hideInMenu: true,
@@ -58,41 +58,14 @@ export default [
     ],
   },
   {
-    path: '/admin',
+    path: '/admin/user',
     access: 'canAdmin',
-    name: '管理',
-    // flatMenu: true,
-    routes: [
-      {
-        name: '用户管理',
-        path: '/admin/user',
-        component: 'admin/user',
-      },
-      {
-        name: '词库管理',
-        path: '/admin/dict',
-        component: 'admin/dict',
-      },
-      {
-        name: '表管理',
-        path: '/admin/table',
-        component: 'admin/tableInfo',
-      },
-      {
-        name: '字段管理',
-        path: '/admin/field',
-        component: 'admin/fieldInfo',
-      },
-      {
-        name: '举报管理',
-        path: '/admin/report',
-        component: 'admin/report',
-      },
-    ],
+    name: '用户管理',
+    component: 'admin/user',
   },
 ];
 
-// e.g.
+// 用法说明
 // export const routes: IBestAFSRoute[] = [
 //   {
 //     path: '/welcome',

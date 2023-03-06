@@ -6,7 +6,7 @@
 export default (initialState: InitialState) => {
   const canUser = !!initialState.loginUser;
   const canAdmin =
-    initialState.loginUser && initialState.loginUser.userRole === 'admin';
+    initialState.loginUser && initialState.loginUser.userRole === 'admin';  //当角色和用户名都对上时就登录到管理界面
   return {
     canUser,
     canAdmin,
