@@ -1,8 +1,8 @@
 import DictCard from '@/components/DictCard';
 import { listMyDictByPage } from '@/services/dictService';
 import { PageContainer } from '@ant-design/pro-components';
-import { Col, message, Radio, RadioChangeEvent, Row } from 'antd';
-import React, { useState } from 'react';
+import { Col, message, Row } from 'antd';
+import React from 'react';
 import './index.less';
 
 /**
@@ -11,7 +11,6 @@ import './index.less';
  * @constructor
  */
 const IndexPage: React.FC = () => {
-  const [layout, setLayout] = useState('half');
 
   /**
    * 加载我的数据
@@ -38,9 +37,6 @@ const IndexPage: React.FC = () => {
    * 更改布局
    * @param e
    */
-  const onLayoutChange = (e: RadioChangeEvent) => {
-    setLayout(e.target.value);
-  };
 
   return (
     <div id="indexPage">
@@ -50,29 +46,11 @@ const IndexPage: React.FC = () => {
             使用现成的词库来生成特定数据!
           </>
         }
-        extra={
-          <div style={{ marginLeft: 0 }}>
-            切换布局：
-            <Radio.Group onChange={onLayoutChange} value={layout}>
-              <Radio.Button value="input">公开</Radio.Button>
-              <Radio.Button value="half">同屏</Radio.Button>
-              <Radio.Button value="output">个人</Radio.Button>
-            </Radio.Group>
-          </div>
-        }
       >
         <Row gutter={[12, 12]}>
           <Col
             xs={24}
-            xl={layout === 'half' ? 12 : 24}
-            order={layout === 'output' ? 2 : 1}
-          >
-            <DictCard title="公开词库" showTag={false} />
-          </Col>
-          <Col
-            xs={24}
-            xl={layout === 'half' ? 12 : 24}
-            order={layout === 'output' ? 1 : 2}
+            xl={24}
           >
             <DictCard title="个人词库" onLoad={loadMyData} needLogin />
           </Col>

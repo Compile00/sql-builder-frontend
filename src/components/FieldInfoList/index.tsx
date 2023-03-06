@@ -146,15 +146,7 @@ const FieldInfoList: React.FC<Props> = (props) => {
                 >
                   复制语句
                 </Button>
-                <Button
-                  type="text"
-                  onClick={() => {
-                    setReportedId(item.id);
-                    setReportModalVisible(true);
-                  }}
-                >
-                  举报
-                </Button>
+
                 {loginUser && loginUser.id === item.userId && (
                   <Popconfirm
                     title="你确定要删除么？"

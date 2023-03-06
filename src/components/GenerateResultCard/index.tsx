@@ -190,7 +190,7 @@ const GenerateResultCard: React.FC<Props> = (props) => {
             <>
               <Collapse defaultActiveKey={['1', '2']}>
                 <Collapse.Panel
-                  header="实体代码"
+                  header="Java 实体代码"
                   key="1"
                   className="code-collapse-panel"
                   extra={
@@ -210,7 +210,7 @@ const GenerateResultCard: React.FC<Props> = (props) => {
                   <CodeEditor value={result.javaEntityCode} language="java" />
                 </Collapse.Panel>
                 <Collapse.Panel
-                  header="对象代码"
+                  header="Java 对象代码"
                   key="2"
                   className="code-collapse-panel"
                   extra={
@@ -234,7 +234,7 @@ const GenerateResultCard: React.FC<Props> = (props) => {
           ),
         },
         {
-          label: `前端代码`,
+          label: `typescript 代码`,
           key: 'frontendCode',
           children: (
             <>
