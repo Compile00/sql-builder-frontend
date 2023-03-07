@@ -26,7 +26,7 @@ interface Props {
  * @constructor
  */
 const DictCard: React.FC<Props> = (props) => {
-  const { title = '公开词库', needLogin = false, showTag = true, onLoad, onImport } = props;
+  const { title = '个人词库', needLogin = true, showTag = true, onLoad, onImport } = props;
 
   // 公开数据
   const [dataList, setDataList] = useState<DictType.Dict[]>([]);
@@ -38,6 +38,9 @@ const DictCard: React.FC<Props> = (props) => {
     sortField: 'createTime',
     sortOrder: 'descend',
   };
+
+
+
   const [searchParams, setSearchParams] =
     useState<DictType.DictQueryRequest>(initSearchParams);
 

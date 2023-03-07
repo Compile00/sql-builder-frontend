@@ -122,7 +122,6 @@ const IndexPage: React.FC = () => {
       extra={
         <Select defaultValue="SQL1" style={{ width: 200 }} >
           <Select.Option value="SQL1">仅支持MySQL数据库</Select.Option>
-          <Select.Option value="SQL2">无</Select.Option>
         </Select>
       }
     >
@@ -151,7 +150,7 @@ const IndexPage: React.FC = () => {
       <PageContainer
         title={
           <>
-           便捷生成 SQL 语句和模拟数据，旨在提高开发测试效率！
+           快速生成 SQL (建表/插入) 语句和生成模拟数据，提高开发测试效率！
           </>
         }
         extra={

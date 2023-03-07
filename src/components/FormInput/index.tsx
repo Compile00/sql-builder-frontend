@@ -148,12 +148,12 @@ const FormInput: React.FC<Props> = forwardRef((props, ref) => {
           <Input placeholder="描述表的中文名称、作用等" />
         </Form.Item>
         <Form.Item
-          label="生成条数"
+          label="生成条数（范围10到1000条）"
           name="mockNum"
           initialValue={20}
           rules={[{ required: true }]}
         >
-          <InputNumber min={10} max={100} />
+          <InputNumber min={10} max={1000} />
         </Form.Item>
         <Form.List name="fieldList">
           {(fields, { add, remove, move }) => (

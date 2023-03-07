@@ -269,7 +269,7 @@ const GenerateResultCard: React.FC<Props> = (props) => {
       ]}
     />
   ) : (
-    <Empty description="请先输入配置并点击【一键生成】" />
+    <Empty description="请先输入配置信息后点击【一键生成】" />
   );
 
   return showCard ? (

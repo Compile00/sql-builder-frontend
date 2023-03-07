@@ -8,20 +8,23 @@ export default [
     path: '/',
     component: 'index',
   },
+
   {
-    name: '词库大全',
-    path: '/dict/all',
-    component: 'dict',
+    name: '字段大全',
+    path: '/field/all',
+    component: 'fieldInfo',
   },
+
   {
     name: '表大全',
     path: '/table/all',
     component: 'tableInfo',
   },
+
   {
-    name: '字段大全',
-    path: '/field/all',
-    component: 'fieldInfo',
+    name: '词库大全',
+    path: '/dict/all',
+    component: 'dict',
   },
   {
     name: '创建个人词库',
