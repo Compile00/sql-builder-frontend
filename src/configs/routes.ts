@@ -4,25 +4,25 @@
  */
 export default [
   {
-    name: '代码生成',
+    name: 'SQL语句/代码生成',
     path: '/',
     component: 'index',
   },
 
   {
-    name: '字段大全',
+    name: '保存的字段',
     path: '/field/all',
     component: 'fieldInfo',
   },
 
   {
-    name: '表大全',
+    name: '保存的表',
     path: '/table/all',
     component: 'tableInfo',
   },
 
   {
-    name: '词库大全',
+    name: '个人词库',
     path: '/dict/all',
     component: 'dict',
   },
