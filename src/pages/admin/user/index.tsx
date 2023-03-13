@@ -33,7 +33,6 @@ const doDelete = async (selectedRows: UserType.User[]) => {
  * @constructor
  */
 const AdminUserPage: React.FC<unknown> = () => {
-  const [createModalVisible, setCreateModalVisible] = useState<boolean>(false);
   const [updateModalVisible, setUpdateModalVisible] = useState<boolean>(false);
   const [updateData, setUpdateData] = useState<UserType.User>({});
   const actionRef = useRef<ActionType>();

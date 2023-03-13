@@ -38,7 +38,7 @@ const IndexPage: React.FC = () => {
     useState(false);
   const [genLoading, setGenLoading] = useState(false);
   const formInputRef: any = useRef();
-  const [layout, setLayout] = useState('half');
+  const [layout, setLayout] = useState('input');
 
   const [searchParams] = useSearchParams();
   const tableId = searchParams.get('table_id');
@@ -150,7 +150,7 @@ const IndexPage: React.FC = () => {
       <PageContainer
         title={
           <>
-           快速生成 SQL (建表/插入) 语句和生成模拟数据，提高开发测试效率！
+           快速生成(建表/插入) 语句、代码和模拟数据
           </>
         }
         extra={

@@ -4,7 +4,7 @@
  */
 export default [
   {
-    name: 'SQL语句/代码生成',
+    name: '代码和数据生成',
     path: '/',
     component: 'index',
   },
