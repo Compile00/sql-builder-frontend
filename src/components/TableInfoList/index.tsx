@@ -33,7 +33,7 @@ interface Props {
  * @constructor
  */
 const TableInfoList: React.FC<Props> = (props) => {
-  const { dataList, pagination, loading, showTag = true, onImport } = props;
+  const { dataList, pagination, loading, onImport } = props;
   const { initialState } = useModel('@@initialState');
   const loginUser = initialState?.loginUser;
 

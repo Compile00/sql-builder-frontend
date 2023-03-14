@@ -50,7 +50,12 @@ const ImportTableDrawer: React.FC<Props> = (props) => {
       open={visible}
       onClose={onClose}
     >
-      <TableInfoCard onLoad={loadMyData} onImport={onImport} />
+      <TableInfoCard
+          onLoad={loadMyData}
+          onImport={onImport}
+          hideCreateButton={true}
+      />
+
     </Drawer>
   );
 };
