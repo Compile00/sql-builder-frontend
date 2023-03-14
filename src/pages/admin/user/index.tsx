@@ -44,7 +44,8 @@ const AdminUserPage: React.FC<unknown> = () => {
     {
       title: '序号',
       dataIndex: 'id',
-      valueType: 'index',
+      // valueType: 'index',
+      valueType: 'indexBorder',
     },
     {
       title: '用户昵称',
@@ -108,6 +109,7 @@ const AdminUserPage: React.FC<unknown> = () => {
         headerTitle="用户管理"
         actionRef={actionRef}
         rowKey="id"
+        // rowKey={(record) => `user_${record.id}`}
         search={{
           labelWidth: 'auto',
         }}

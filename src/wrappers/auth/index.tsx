@@ -14,3 +14,4 @@ export default () => {
     return <Navigate to="/user/login" replace />;
   }
 };
+

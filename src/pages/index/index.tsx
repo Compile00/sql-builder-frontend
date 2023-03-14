@@ -116,12 +116,15 @@ const IndexPage: React.FC = () => {
   /**
    * 输入配置视图
    */
+
   const inputConfigView = (
     <Card
       title="输入配置"
       extra={
         <Select defaultValue="SQL1" style={{ width: 200 }} >
-          <Select.Option value="SQL1">仅支持MySQL数据库</Select.Option>
+          <Select.Option value="SQL1">MySQL数据库</Select.Option>
+          <Select.Option value="SQL2" disabled>Oracle数据库</Select.Option>
+          <Select.Option value="SQL3" disabled>SQL Server数据库</Select.Option>
         </Select>
       }
     >

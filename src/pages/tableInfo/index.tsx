@@ -2,8 +2,8 @@ import TableInfoCard from '@/components/TableInfoCard';
 import { listMyAddTableInfoByPage } from '@/services/tableInfoService';
 import { PageContainer } from '@ant-design/pro-components';
 import { useNavigate } from '@umijs/max';
-import { Col, message, Radio, RadioChangeEvent, Row } from 'antd';
-import React, { useState } from 'react';
+import { Col, message,  Row } from 'antd';
+import React from 'react';
 import './index.less';
 
 /**
