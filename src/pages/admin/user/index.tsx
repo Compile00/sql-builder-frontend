@@ -42,7 +42,7 @@ const AdminUserPage: React.FC<unknown> = () => {
    */
   const columns: ProColumns<UserType.User>[] = [
     {
-      title: 'id',
+      title: '序号',
       dataIndex: 'id',
       valueType: 'index',
     },
@@ -66,12 +66,14 @@ const AdminUserPage: React.FC<unknown> = () => {
       dataIndex: 'createTime',
       valueType: 'dateTime',
       hideInForm: true,
+      search: false, // 关闭查询功能
     },
     {
       title: '更新时间',
       dataIndex: 'updateTime',
       valueType: 'dateTime',
       hideInForm: true,
+      search: false, // 关闭查询功能
     },
     {
       title: '操作',
