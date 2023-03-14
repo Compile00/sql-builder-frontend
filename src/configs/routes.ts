@@ -13,6 +13,7 @@ export default [
     name: '保存的字段',
     path: '/field/all',
     component: 'fieldInfo',
+
   },
 
   {
