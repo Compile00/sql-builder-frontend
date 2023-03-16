@@ -121,17 +121,4 @@ export const MOCK_PARAMS_RANDOM_TYPE_LIST = [
   '大学',
 ];
 
-/**
- * 审核状态枚举
- */
-export const REVIEW_STATUS_ENUM = {
-  0: {
-    text: '待审核',
-  },
-  1: {
-    text: '通过',
-  },
-  2: {
-    text: '拒绝',
-  },
-};
+

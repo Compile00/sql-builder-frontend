@@ -68,7 +68,15 @@ const AvatarDropdown: React.FC = () => {
       overlay={menuHeaderDropdown}
     >
       <div className={`${styles.action} ${styles.account}`}>
-        <Avatar>{loginUser.userName?.[0] ?? '无'}</Avatar>
+        {/*<Avatar>{loginUser.userName?.[0] ?? '无'}</Avatar>*/}
+
+        <Avatar
+            src={loginUser?.userAvatar}
+            alt="avatar"
+            size={32}
+        >
+          {loginUser.userName ? loginUser.userName[0] : '无'}
+        </Avatar>
       </div>
     </Dropdown>
   ) : (
