@@ -2,7 +2,7 @@
  * 用户类型定义
  */
 declare namespace UserType {
-  type UserGenderEnum = 'MALE' | 'FEMALE';
+  // type UserGenderEnum = 'MALE' | 'FEMALE';
 
   /**
    * 实体
@@ -12,7 +12,7 @@ declare namespace UserType {
     userName?: string;
     userAccount?: string;
     userAvatar?: string;
-    gender?: UserGenderEnum;
+    gender?: number;
     userRole?: string;
     userPassword?: string;
     createTime?: Date;
@@ -27,7 +27,7 @@ declare namespace UserType {
     userName?: string;
     userAccount?: string;
     userAvatar?: string;
-    gender?: UserGenderEnum;
+    gender?: number;
     userRole?: string;
     createTime?: Date;
     updateTime?: Date;
@@ -58,7 +58,7 @@ declare namespace UserType {
     userName: string;
     userAccount: string;
     userAvatar?: string;
-    gender?: UserGenderEnum;
+    gender?: number;
     userRole: string;
     userPassword: string;
   }
@@ -78,7 +78,7 @@ declare namespace UserType {
     userName?: string;
     userAccount?: string;
     userAvatar?: string;
-    gender?: UserGenderEnum;
+    gender?: number;
     userRole?: string;
   }
 
@@ -90,7 +90,7 @@ declare namespace UserType {
     userName?: string;
     userAccount?: string;
     userAvatar?: string;
-    gender?: UserGenderEnum;
+    gender?: number;
     userRole?: string;
     createTime?: Date;
     updateTime?: Date;

@@ -50,6 +50,21 @@ export async function updateUser(params: UserType.UserUpdateRequest) {
   });
 }
 
+
+/**
+ * 更新用户个人信息
+ * @param params
+ */
+export async function updateUserSelf(params: UserType.UserUpdateRequest) {
+  return request<BaseResponse<boolean>>(`/user/update_myself`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: params,
+  });
+}
+
 /**
  * 删除用户
  * @param params

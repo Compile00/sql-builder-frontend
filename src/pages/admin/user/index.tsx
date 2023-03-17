@@ -143,12 +143,10 @@ const AdminUserPage: React.FC<unknown> = () => {
 
   return (
     <PageContainer>
-
       <ProTable<UserType.User>
         headerTitle="用户管理"
         actionRef={actionRef}
         rowKey="id"
-        // rowKey={(record) => `user_${record.id}`}
         search={{
           labelWidth: 'auto',
         }}

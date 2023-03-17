@@ -44,7 +44,7 @@ const UpdateModal: React.FC<PropsWithChildren<UpdateModalProps>> = (props) => {
   return (
     <Modal
       destroyOnClose
-      title="更新"
+      title="修改信息"
       open={modalVisible}
       onCancel={() => onCancel()}
       footer={null}
@@ -63,6 +63,7 @@ const UpdateModal: React.FC<PropsWithChildren<UpdateModalProps>> = (props) => {
           });
           if (success) {
             onSubmit?.();
+            onCancel();
           }
         }}
       />
