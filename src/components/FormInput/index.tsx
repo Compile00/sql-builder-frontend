@@ -9,7 +9,7 @@ import {
   MOCK_TYPE_LIST,
   ON_UPDATE_LIST,
 } from '@/constants';
-import { listMyDict } from '@/services/dictService';
+import {listMyDict} from '@/services/dictService';
 import { DownOutlined, PlusOutlined, UpOutlined } from '@ant-design/icons';
 import {
   AutoComplete,
@@ -32,12 +32,15 @@ import React, {
   useState,
 } from 'react';
 import './index.less';
+import {useModel} from "@@/exports";
+import user from "@/pages/admin/user";
 
 const { Option } = Select;
 
 interface Props {
   onSubmit: (values: TableSchema) => void;
   ref: any;
+
 }
 
 /**
@@ -72,13 +75,25 @@ const FormInput: React.FC<Props> = forwardRef((props, ref) => {
     onSubmit?.(values);
   };
 
+  //用户登录情况
+  const { initialState } = useModel('@@initialState');
+  const loginUser = initialState?.loginUser;
+
+
   // 获取可选词库列表
   const loadDictList = () => {
     listMyDict({})
       .then((res) => {
+        // 需要登录,若没登录则不显示词库选择
+        if (!loginUser) {
+          return null;
+        }
         setDictList(res.data);
       })
       .catch((e) => {
+        if (e.message === "请先登录"){
+          return;
+        }
         message.error('加载词库失败，' + e.message);
       });
   };
