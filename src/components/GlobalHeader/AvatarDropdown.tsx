@@ -1,6 +1,6 @@
 import {updateUserSelf, userLogout} from '@/services/userService';
 import { Link } from '@@/exports';
-import { LogoutOutlined , ProfileOutlined} from '@ant-design/icons';
+import {LogoutOutlined, ProfileOutlined, UserOutlined} from '@ant-design/icons';
 import { useModel } from '@umijs/max';
 import {Avatar, Button, Dropdown, Form, Input, Menu, message, Modal, Select} from 'antd';
 import classNames from 'classnames';
@@ -50,6 +50,9 @@ const AvatarDropdown: React.FC = () => {
       // 显示用户信息修改表单逻辑
       message.success("修改个人信息");
       // 点击“修改个人信息
+    }else if(key==="current"){
+      //@ts-ignore
+        message.success("用户昵称："+loginUser.userName ?? '无名');
     }
   };
 
@@ -58,7 +61,7 @@ const AvatarDropdown: React.FC = () => {
    */
   const menuHeaderDropdown = loginUser ? (
     <Menu className={styles.menu} selectedKeys={[]} onClick={onMenuClick}>
-      <Menu.Item key="current" disabled>
+      <Menu.Item key="current" icon={<UserOutlined/> }>
         {loginUser.userName ?? '无名'}
       </Menu.Item>
       <Menu.Item key="profile" onClick={() => setIsModalVisible(true)}>
@@ -77,11 +80,12 @@ const AvatarDropdown: React.FC = () => {
   );
 
 
+  //处理传入的修改信息
   const handleUpdateUserInfo = async (values: UserType.UserUpdateRequest) => {
 
     const hide = message.loading('正在修改');
 
-
+    //合并原来的用户id号和修改后的值
     const mergedValues = {
       ...values,
       // @ts-ignore
@@ -89,7 +93,7 @@ const AvatarDropdown: React.FC = () => {
     };
 
     try {
-      await updateUserSelf(mergedValues);
+      await updateUserSelf(mergedValues);  //向后端发送请求数据
       hide();
       message.success('修改成功');
       setIsModalVisible(false);
@@ -99,10 +103,7 @@ const AvatarDropdown: React.FC = () => {
       message.error('修改失败');
       return false;
     }
-
   };
-
-
 
 
   return loginUser ? (
@@ -140,8 +141,9 @@ const AvatarDropdown: React.FC = () => {
             >
               <Input placeholder={"请输入图片链接"}/>
             </Form.Item>
+
             <Form.Item name="gender" label="性别">
-              <Select placeholder={"请选择"}>
+              <Select placeholder={"请选择"} >
                 <Select.Option value="0">保密</Select.Option>
                 <Select.Option value="1">男</Select.Option>
                 <Select.Option value="2">女</Select.Option>
