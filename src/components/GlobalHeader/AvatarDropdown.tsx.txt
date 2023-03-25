@@ -20,13 +20,13 @@ import styles from './index.less';
 
 /**
  * 头像下拉菜单
+ *
  * @constructor
  */
 const AvatarDropdown: React.FC = () => {
   const { initialState, setInitialState } = useModel('@@initialState');
   const loginUser = initialState?.loginUser;
   const [isModalVisible, setIsModalVisible] = useState(false);
-
 
   const userGender = loginUser ? (() => {
     switch (loginUser.gender) {
@@ -40,7 +40,6 @@ const AvatarDropdown: React.FC = () => {
         return '未知';
     }
   })() : '未获取到用户';
-
   const onMenuClick = async (event: {
     key: React.Key;
     keyPath: React.Key[];
@@ -121,7 +120,6 @@ const AvatarDropdown: React.FC = () => {
       hide();
       message.success('修改成功');
       setIsModalVisible(false);
-      window.location.reload(); // 刷新页面用于更新信息,但当前页面的数据会消失
       return true;
     } catch (error) {
       hide();
@@ -152,7 +150,7 @@ const AvatarDropdown: React.FC = () => {
             onOk={() => setIsModalVisible(false)}
         >
           <Form
-              initialValues={{"userName": loginUser.userName, "userAvatar": loginUser.userAvatar}}
+              initialValues={{"userName": loginUser.userName, "userAvatar": loginUser.userAvatar, "gender": loginUser.gender }}
               onFinish={(values) => handleUpdateUserInfo(values)}
           >
             <Form.Item name="userName" label="用户昵称"
@@ -174,9 +172,6 @@ const AvatarDropdown: React.FC = () => {
               </Select>
             </Form.Item>
             <Button htmlType="submit">提交</Button>
-            <div style={{ color: 'red', marginTop: '10px' }}>
-              注意：当点击提交按钮后，页面将自动刷新，当前页面的数据可能会丢失
-            </div>
           </Form>
         </Modal>
       </div>
