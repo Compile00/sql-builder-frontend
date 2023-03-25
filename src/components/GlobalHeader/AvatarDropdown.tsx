@@ -1,6 +1,13 @@
 import {updateUserSelf, userLogout} from '@/services/userService';
 import { Link } from '@@/exports';
-import {LogoutOutlined, ProfileOutlined, UserOutlined} from '@ant-design/icons';
+import {
+  LogoutOutlined,
+  ManOutlined,
+  ProfileOutlined,
+  UserOutlined,
+  WomanOutlined,
+  QuestionCircleOutlined
+} from '@ant-design/icons';
 import { useModel } from '@umijs/max';
 import {Avatar, Button, Dropdown, Form, Input, Menu, message, Modal, Select} from 'antd';
 import classNames from 'classnames';
@@ -19,11 +26,20 @@ import styles from './index.less';
 const AvatarDropdown: React.FC = () => {
   const { initialState, setInitialState } = useModel('@@initialState');
   const loginUser = initialState?.loginUser;
-
-
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-
+  const userGender = loginUser ? (() => {
+    switch (loginUser.gender) {
+      case 0:
+        return '保密';
+      case 1:
+        return '男';
+      case 2:
+        return '女';
+      default:
+        return '未知';
+    }
+  })() : '未获取到用户';
   const onMenuClick = async (event: {
     key: React.Key;
     keyPath: React.Key[];
@@ -48,27 +64,34 @@ const AvatarDropdown: React.FC = () => {
       return;
     }else if (key === "profile") {
       // 显示用户信息修改表单逻辑
-      message.success("修改个人信息");
+      message.info("修改个人信息");
       // 点击“修改个人信息
     }else if(key==="current"){
       //@ts-ignore
         message.success("用户昵称："+loginUser.userName ?? '无名');
+    }else if (key==="gender"){
+      message.success("性别: "+userGender);
     }
   };
+
+
 
   /**
    * 下拉菜单
    */
   const menuHeaderDropdown = loginUser ? (
     <Menu className={styles.menu} selectedKeys={[]} onClick={onMenuClick}>
-      <Menu.Item key="current" icon={<UserOutlined/> }>
+      <Menu.Item key="current" title={"用户昵称"} icon={<UserOutlined/> }>
         {loginUser.userName ?? '无名'}
       </Menu.Item>
-      <Menu.Item key="profile" onClick={() => setIsModalVisible(true)}>
+      <Menu.Item key="gender" title={"性别"} icon={loginUser.gender === 1 ? <ManOutlined /> : loginUser.gender === 2 ? <WomanOutlined /> : <QuestionCircleOutlined/>}>
+        {userGender}
+      </Menu.Item>
+      <Menu.Item key="profile"title={"点击修改信息"} onClick={() => {setIsModalVisible(true);}}>
         <ProfileOutlined />
         <span>修改个人信息</span>
       </Menu.Item>
-      <Menu.Item key="logout">
+      <Menu.Item key="logout" title={"点击退出登录"}>
         <span style={{ color: 'red' }}>
           <LogoutOutlined />
           退出登录
@@ -107,7 +130,6 @@ const AvatarDropdown: React.FC = () => {
 
 
   return loginUser ? (
-
     <Dropdown
       overlayClassName={classNames(styles.container)}
       overlay={menuHeaderDropdown}
@@ -151,11 +173,8 @@ const AvatarDropdown: React.FC = () => {
             </Form.Item>
             <Button htmlType="submit">提交</Button>
           </Form>
-
         </Modal>
-
       </div>
-
     </Dropdown>
 
   ) : (
