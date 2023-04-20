@@ -42,7 +42,7 @@ const AutoInputModal: React.FC<Props> = (props) => {
           name="content"
           label={
             <>
-              请输入表的列名，多个列以【英文或中文逗号】分隔：
+              请输入表的列名，多个列以【英文或中文逗号】分隔，比如：编号，姓名，性别
               <Button
                 onClick={() =>
                   form.setFieldValue('content', AUTO_INPUT_EXAMPLE)
@@ -55,7 +55,7 @@ const AutoInputModal: React.FC<Props> = (props) => {
           rules={[{ required: true, message: '请输入配置' }]}
         >
           <TextArea
-            placeholder="请输入表的列名，多个列以【英文或中文逗号】分隔："
+            placeholder="请输入表的列名，多个列以逗号分隔（不区分中英文逗号）：实现智能导入。能根据字段中文名自动转换成英文字段名，前提是中文字段名已经存储到数据库中，否则将以中文的形式导入到字段名中。"
             autoSize={{ minRows: 16 }}
           />
         </Form.Item>

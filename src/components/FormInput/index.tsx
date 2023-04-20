@@ -33,7 +33,6 @@ import React, {
 } from 'react';
 import './index.less';
 import {useModel} from "@@/exports";
-import user from "@/pages/admin/user";
 
 const { Option } = Select;
 
@@ -165,8 +164,8 @@ const FormInput: React.FC<Props> = forwardRef((props, ref) => {
         <Form.Item
           label="生成条数（范围10到1000条）"
           name="mockNum"
-          initialValue={20}
-          rules={[{ required: true }]}
+          initialValue={10}
+          // rules={[{ required: true }]}
         >
           <InputNumber min={10} max={1000} />
         </Form.Item>
