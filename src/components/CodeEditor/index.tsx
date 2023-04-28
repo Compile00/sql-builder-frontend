@@ -15,11 +15,6 @@ interface Props {
 const CodeEditor: React.FC<Props> = (props) => {
   const { value, height = 480, language = 'sql', onChange } = props;
 
-  // const editorDidMount = (editor, monaco) => {
-  //   console.log('editorDidMount', editor);
-  //   editor.focus();
-  // };
-
   const options = {
     selectOnLineNumbers: true,
     fontSize: 14,
