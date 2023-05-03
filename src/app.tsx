@@ -1,11 +1,11 @@
 // 全局运行时配置
 import Logo from '@/assets/logo.png';
 import GlobalFooter from '@/components/GlobalFooter';
+import RightContent from '@/components/GlobalHeader/RightContent';
 import { getLoginUser } from '@/services/userService';
 import { RunTimeLayoutConfig } from '@@/plugin-layout/types';
 import type { RequestConfig } from 'umi';
 import './global.less';
-import RightContent from '@/components/GlobalHeader/RightContent';
 
 /**
  * 全局初始化数据配置，用于 Layout 用户信息和权限初始化
@@ -50,7 +50,11 @@ const isDev = process.env.NODE_ENV === 'development';
  * https://umijs.org/docs/max/request
  */
 export const request: RequestConfig = {
-  baseURL: isDev ? 'http://localhost:8102/api' : '你的线上接口地址',
+  // baseURL: isDev ? 'http://localhost:8102/api' : '你的线上接口地址',
+  // baseURL: isDev
+  //   ? 'http://localhost:8102/api'
+  //   : 'http://sql.zenytech.top:8102/api',
+  baseURL: isDev ? 'http://8.134.129.70:8102/api' : '你的线上接口地址',
   timeout: 10000,
   withCredentials: true,
   // other axios options you want
