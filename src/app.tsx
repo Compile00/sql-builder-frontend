@@ -55,7 +55,8 @@ export const request: RequestConfig = {
   //   ? 'http://localhost:8102/api'
   //   : 'http://sql.zenytech.top:8102/api',
 //   baseURL:isDev ? 'https://data.zenytech.xyz/api' : 'http://8.134.129.70:8102/api',
-  baseURL:'https://data.zenytech.xyz/api',
+//   baseURL:'https://data.zenytech.xyz/api',
+  baseURL:'https://8.134.129.70/api',
   timeout: 10000,
   withCredentials: true,
   // other axios options you want
