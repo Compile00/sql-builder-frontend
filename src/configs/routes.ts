@@ -62,4 +62,12 @@ export default [
     name: '用户管理',
     component: 'admin/user',
   },
+  {
+    // 设置 links 配置，href 是相对于 public 目录的路径
+    links: [
+      { 
+      rel: 'icon', href: '/src/asset/favicon.png' 
+      }
+    ],
+  },
 ];
