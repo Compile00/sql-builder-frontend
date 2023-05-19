@@ -23,4 +23,7 @@ export default defineConfig({
     ]);
     return memo;
   },
+  
+// 设置 links 配置即标签图像，href 是相对于 public 目录的路径
+  links: [{ rel: 'icon', href: '/favicon.png' }],
 });
